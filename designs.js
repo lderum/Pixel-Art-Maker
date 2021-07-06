@@ -10,6 +10,7 @@ let gridWidth;
 
 let table = document.getElementById("pixelCanvas");
 
+//Generates grid from user's size input.
 function makeGrid(evt) {
     evt.preventDefault();
     gridHeight = form.elements['inputHeight'].value;
@@ -17,15 +18,16 @@ function makeGrid(evt) {
 
     for(var row = 0; row < gridHeight; row++){
 
-        var newRow = table.insertRow(row);
+        let newRow = table.insertRow(row);
 
         for(var column = 0; column < gridWidth; column++){
-           var newColumn = newRow.insertCell(column);    
+           let newColumn = newRow.insertCell(column);    
            newColumn.setAttribute('style','background-color: transparent;');    
         }
     }
 }
 
+//Changes square color. If user clicks again, removes color
 function respondToTheClick(evt){
     if(evt.target.style.backgroundColor === "transparent"){
         evt.target.style.backgroundColor = userColor;
